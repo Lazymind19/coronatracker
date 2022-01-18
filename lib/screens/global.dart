@@ -2,6 +2,7 @@ import 'package:covid_app_flutter/models/global_summary.dart';
 import 'package:covid_app_flutter/screens/global_statistics.dart';
 import 'package:covid_app_flutter/services/CovidServices.dart';
 import 'package:flutter/material.dart';
+import 'global_loading.dart';
 
 
 CovidService covidService = CovidService();
@@ -59,9 +60,7 @@ class _GlobalState extends State<Global> {
               );
             switch(snapShot.connectionState){
               case ConnectionState.waiting:
-                return Center(
-                  child: Text("Loading.."),
-                );
+                return Globalloading();
               default:
                 return !snapShot.hasData ? Center(
                   child: Text("Empty"),
